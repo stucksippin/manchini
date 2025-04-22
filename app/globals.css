@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+ul {
+  list-style: none;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.button {
+  padding: 10px 30px;
+  background: beige;
+  font-weight: 300;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.title {
+  font-size: 48px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.section {
+  padding: 50px 0px;
+}
+
+.container1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.4fr 1.4fr 0.4fr 1.4fr 0.4fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "first first first first first . second second second second second";
+}
+
+.first {
+  grid-area: first;
+}
+
+.second {
+  grid-area: second;
+}
+
+
+.container2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.4fr 1fr 1fr 1fr 0.4fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "fourth fourth fourth . five five five . six six six";
+}
+
+.fourth {
+  grid-area: fourth;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.contact_info {
+  width: calc(40%);
+}
+
+.contact_image {
+  width: calc(50%);
+}
+
+.footer_block {
+  width: 300px;
 }
