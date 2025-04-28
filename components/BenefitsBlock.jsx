@@ -55,7 +55,7 @@ export default function BenefitsBlock() {
                 </div>
 
                 {/* 1 */}
-                <div className='flex mx-auto justify-between'>
+                <div className='flex mx-auto justify-between gap-x-10'>
                     {dataBenefits.map((benefit) => (
                         <div className='flex flex-col w-[367px]' key={benefit.id}>
                             <Image
@@ -66,7 +66,7 @@ export default function BenefitsBlock() {
                             />
                             <h2 className='mt-3 text-xl'>{benefit.title}</h2>
                             <span className='mt-3'>{benefit.discription}</span>
-                            <button className='text-left mt-3'>Learn More →</button>
+                            <button className='border text-left mt-3 hover:bg-amber-200 w-fit p-2 rounded-lg'>Learn More →</button>
                         </div>
                     ))}
                 </div>
@@ -74,7 +74,7 @@ export default function BenefitsBlock() {
                 <hr className='my-10' />
 
                 {/* 2 */}
-                <div className='flex justify-between mt-10 text-center '>
+                <div className='flex justify-between mt-10 text-center gap-x-10'>
                     {
                         dataRating.map((item) => (
                             <div key={item.id} className='flex flex-col justify-center w-[270px] h-[270px] bg-[#d0b9a7] p-5'>

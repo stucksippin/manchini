@@ -1,7 +1,12 @@
+import Catalog from '@/components/Catalog'
+import getObjects from '@/libs/getObject'
 import React from 'react'
 
-export default function CatalogPage() {
+export default async function CatalogPage() {
+    const objects = await getObjects()
     return (
-        <div>CatalogPage</div>
+        <div>
+            <Catalog objects={objects} />
+        </div>
     )
 }
