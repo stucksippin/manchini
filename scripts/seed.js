@@ -6,9 +6,16 @@ async function main() {
     const districts = ['Центральный район', 'Советский район', 'Кировский район', 'Железнодорожный район', 'Пригород'];
     const streets = ['ул. Ленина', 'ул. Гагарина', 'ул. Пушкина', 'ул. Толстого', 'ул. Садовая', 'ул. Мира', 'ул. Свободы', 'ул. Победы'];
     const types = ['NEW_BUILDING', 'SECONDARY', 'HOUSE'];
+    const infrastructureTypes = ['SCHOOL', 'PARK', 'MALL', 'KINDERGARTEN'];
 
     const generateRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
     const generateRandomFloat = (min, max) => (Math.random() * (max - min) + min).toFixed(6);
+
+    function getRandomInfrastructures() {
+        const shuffled = infrastructureTypes.sort(() => 0.5 - Math.random());
+        const count = generateRandomNumber(1, 3);
+        return shuffled.slice(0, count);
+    }
 
     const objectsData = Array.from({ length: 25 }, (_, index) => {
         const city = cities[index % cities.length];
@@ -56,8 +63,21 @@ async function main() {
                 });
                 console.log(`📸 Фотография для объекта ${createdObject.name} добавлена.`);
             }
+
+            const infrastructures = getRandomInfrastructures();
+
+            for (const infraType of infrastructures) {
+                await prisma.realtyInfrastructure.create({
+                    data: {
+                        objectId: createdObject.id,
+                        type: infraType,
+                    },
+                });
+                console.log(`🏙️ Добавлена инфраструктура (${infraType}) для объекта ${createdObject.name}`);
+            }
+
         } catch (error) {
-            console.error('❌ Ошибка при создании объекта или фотографии:', error);
+            console.error('❌ Ошибка при создании объекта или связанных данных:', error);
         }
     }
 

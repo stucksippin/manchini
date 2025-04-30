@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import ObjectCard from './ObjectCard';
 import Filter from './Filter';
+import Link from 'next/link';
 
 export default function Catalog({ objects }) {
 
@@ -16,8 +17,7 @@ export default function Catalog({ objects }) {
     };
 
     return (
-        <div className="flex mt-[2%] mb-[2%] gap-x-10 mx-[5%] ">
-            <Filter />
+        <div className="w-[80%]">
             <div className='mx-auto'>
                 <div className='flex flex-wrap justify-start gap-x-[40px] gap-y-[40px]  mx-auto'>
                     {itemsToShow.length > 0 ? (
@@ -31,19 +31,21 @@ export default function Catalog({ objects }) {
 
 
                             return (
-                                <ObjectCard
-                                    key={object.id}
-                                    id={object.id}
-                                    name={object.name}
-                                    image={imagePath}
-                                    city={object.city}
-                                    price={object.price}
-                                    area={object.area}
-                                    rooms={object.rooms}
-                                    type={object.type}
-                                    district={object.district}
-                                    street={object.street}
-                                />
+                                <Link key={object.id} href={`/catalog/${object.id}`}>
+                                    <ObjectCard
+                                        key={object.id}
+                                        id={object.id}
+                                        name={object.name}
+                                        image={imagePath}
+                                        city={object.city}
+                                        price={object.price}
+                                        area={object.area}
+                                        rooms={object.rooms}
+                                        type={object.type}
+                                        district={object.district}
+                                        street={object.street}
+                                    />
+                                </Link>
                             );
                         })
                     ) : (
