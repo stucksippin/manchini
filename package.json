@@ -10,7 +10,7 @@
     "seed": "node scripts/seed.js"
   },
   "dependencies": {
-    "@prisma/client": "^6.6.0",
+    "@prisma/client": "^6.8.2",
     "antd": "^5.24.8",
     "leaflet": "^1.9.4",
     "next": "15.2.4",
