@@ -5,15 +5,14 @@ export default function ObjectCard({ id, image, name, price, city, area, rooms, 
 
     const editPrice = String(price).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1.');
     return (
-        <div className="flex flex-col w-[300px] h-[320px]   bg-[#f9f2e5] rounded-lg p-2">
+        <div className="flex flex-col w-full bg-[#f9f2e5] rounded-lg p-2 h-full">
             <img
-                className='rounded-sm'
+                className="rounded-sm w-full h-[180px] object-cover"
                 src={image}
-                width={300}
-                height={300}
                 alt="Фото объекта"
                 onError={(e) => { e.currentTarget.src = '/image/realty-placeholder.webp'; }}
             />
+
             <div className='flex flex-col '>
                 <span className='font-semibold'>{name}</span>
                 <span className='font-semibold'>{area} кв.м²</span>

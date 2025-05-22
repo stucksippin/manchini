@@ -19,7 +19,7 @@ export default function Catalog({ objects }) {
     return (
         <div className="w-[80%]">
             <div className='mx-auto'>
-                <div className='flex flex-wrap justify-start gap-x-[40px] gap-y-[40px]  mx-auto'>
+                <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 mx-auto">
                     {itemsToShow.length > 0 ? (
                         itemsToShow.map((object) => {
                             const mainPhoto = object.photos.length > 0

@@ -54,7 +54,7 @@ export default function Filter({ searchParams, limits }) {
     }
 
     return (
-        <div className='filter w-[350px] max-h-[690px] mx-auto bg-[#f9f2e5] p-5 rounded-lg'>
+        <div className='filter w-full max-w-[350px] max-h-[690px] mx-auto bg-[#f9f2e5] p-5 rounded-lg'>
             <div className='filter_block'>
                 <span className='font-semibold'>Цена</span>
                 <Slider
