@@ -10,12 +10,11 @@ const citiesOptions = [
     { value: 'Питер', label: 'Санкт-Петербург' },
 ];
 
-export default function Filter({ searchParams, limits }) {
+export default function Filter({ searchParams }) {
     const router = useRouter()
-    const [priceMin, setPriceMin] = useState(limits._min.price || 0)
-    const [priceMax, setPriceMax] = useState(limits._max.price || 10000000)
-    const [areaMin, setAreaMin] = useState(limits._min.area || 0)
-    const [areaMax, setAreaMax] = useState(limits._max.area || 1000)
+    const [priceMin, setPriceMin] = useState(0)
+    const [priceMax, setPriceMax] = useState(10000000)
+
     const [rooms, setRooms] = useState(searchParams.rooms || '')
     const [type, setType] = useState(searchParams.type || '')
     const [city, setCity] = useState(searchParams.city || '')
@@ -23,8 +22,6 @@ export default function Filter({ searchParams, limits }) {
     useEffect(() => {
         if (searchParams.priceMin) setPriceMin(Number(searchParams.priceMin));
         if (searchParams.priceMax) setPriceMax(Number(searchParams.priceMax));
-        if (searchParams.areaMin) setAreaMin(Number(searchParams.areaMin));
-        if (searchParams.areaMax) setAreaMax(Number(searchParams.areaMax));
     }, [searchParams])
 
     function applyFilters() {
@@ -32,8 +29,7 @@ export default function Filter({ searchParams, limits }) {
 
         if (priceMin) params.set('priceMin', String(priceMin))
         if (priceMax) params.set('priceMax', String(priceMax))
-        if (areaMin) params.set('areaMin', String(areaMin))
-        if (areaMax) params.set('areaMax', String(areaMax))
+
         if (rooms) params.set('rooms', rooms)
         if (type) params.set('type', type)
         if (city) params.set('city', city)
@@ -42,10 +38,8 @@ export default function Filter({ searchParams, limits }) {
     }
 
     function resetFilters() {
-        setPriceMin(limits._min.price || 0)
-        setPriceMax(limits._max.price || 10000000)
-        setAreaMin(limits._min.area || 0)
-        setAreaMax(limits._max.area || 1000)
+        setPriceMin(0)
+        setPriceMax(10000000)
         setRooms('')
         setType('')
         setCity('')
@@ -60,8 +54,8 @@ export default function Filter({ searchParams, limits }) {
                 <Slider
                     className='w-[300px]'
                     range={{ draggableTrack: true }}
-                    min={limits._min.price}
-                    max={limits._max.price}
+                    min={0}
+                    max={10000000}
                     value={[priceMin, priceMax]}
                     onChange={([min, max]) => {
                         setPriceMin(min)
@@ -71,19 +65,27 @@ export default function Filter({ searchParams, limits }) {
                 <div className="flex items-center my-2">
                     <span className='mr-2'>от</span>
                     <InputNumber
-                        formatter={(value) => `${value}`.replace(',', '.')}
-                        parser={(value) => parseFloat(value.replace(',', '.'))}
-                        min={limits._min.price}
+                        formatter={(value) =>
+                            `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+                        }
+                        parser={(value) =>
+                            value.replace(/\./g, '') // удаляем точки обратно
+                        }
+                        min={0}
                         max={priceMax}
                         value={priceMin}
                         onChange={(value) => setPriceMin(value)}
                     />
                     <span className='mr-2 ml-2'>до</span>
                     <InputNumber
-                        formatter={(value) => `${value}`.replace(',', '.')}
-                        parser={(value) => parseFloat(value.replace(',', '.'))}
+                        formatter={(value) =>
+                            `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+                        }
+                        parser={(value) =>
+                            value.replace(/\./g, '') // удаляем точки обратно
+                        }
                         min={priceMin}
-                        max={limits._max.price}
+                        max={10000000}
                         value={priceMax}
                         onChange={(value) => setPriceMax(value)}
                     />

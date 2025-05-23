@@ -6,10 +6,21 @@ export async function getObjects(searchParams) {
             where: {
                 AND: [
                     searchParams.city ? { city: searchParams.city } : {},
-                    searchParams.type ? { type: searchParams.type } : {},
-                    searchParams.rooms ? { rooms: Number(searchParams.rooms) } : {},
+                    searchParams.type
+                        ? {
+                            type: {
+                                in: searchParams.type.split(','),
+                            },
+                        }
+                        : {},
+                    searchParams.rooms
+                        ? {
+                            rooms: {
+                                in: searchParams.rooms.split(',').map(Number),
+                            },
+                        }
+                        : {},
                     searchParams.priceMax ? { price: { lte: Number(searchParams.priceMax) } } : {},
-                    searchParams.areaMax ? { area: { lte: Number(searchParams.areaMax) } } : {},
                 ]
             },
             include: {
