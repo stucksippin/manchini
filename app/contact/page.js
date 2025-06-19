@@ -9,9 +9,9 @@ import FAQ from '@/components/FAQ'
 
 export default function ContactPage() {
     return (
-        <div className='container  mx-auto'>
-            <div className='flex justify-between '>
-                <div className='contact_infoblock flex flex-col gap-y-3 w-[484px]'>
+        <div className='container mx-auto px-4'>
+            <div className='flex flex-wrap justify-center gap-20 items-center'>
+                <div className='contact_infoblock flex flex-col gap-y-3 w-full max-w-[400px]'>
                     <h3 className='title'>Get in Touch</h3>
                     <span className='mb-5'>Ullamco ea minim nisi cillum est.Ad quis ipsum esse voluptate sint ullamco occaecat.Ullamco ea minim nisi cillum est.Ad quis ipsum esse voluptate sint ullamco occaecat.</span>
                     <div className='flex gap-x-2'>
@@ -29,11 +29,10 @@ export default function ContactPage() {
                         <Image src={phone} alt='phone ico' />
                         <span>+7 983 765 72 73</span>
                     </div>
-                    <Image width={484} height={320} src={def} alt='def' />
+                    <Image width={484} height={320} src={def} alt='def' className='rounded-lg' />
                 </div>
 
                 <CallbackForm />
-
             </div>
             <FAQ />
         </div>
