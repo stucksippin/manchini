@@ -9,21 +9,18 @@ import FAQ from '@/components/FAQ'
 
 export default function ContactPage() {
     return (
-        <div className='container mx-auto px-4'>
-            <div className='flex flex-wrap justify-center gap-20 items-center'>
-                <div className='contact_infoblock flex flex-col gap-y-3 w-full max-w-[400px]'>
-                    <h3 className='title'>Get in Touch</h3>
-                    <span className='mb-5'>Ullamco ea minim nisi cillum est.Ad quis ipsum esse voluptate sint ullamco occaecat.Ullamco ea minim nisi cillum est.Ad quis ipsum esse voluptate sint ullamco occaecat.</span>
+        <div className='container mx-auto px-4 mt-10'>
+            <div className='flex flex-wrap justify-between items-center'>
+                <div className='contact_infoblock flex flex-col gap-y-3 w-full max-w-[500px]'>
+                    <h3 className='title'>Свяжитесь с нами</h3>
+                    <span className='mb-5'>Наши эксперты по элитной недвижимости готовы ответить на все ваши вопросы и помочь с выбором идеального объекта.</span>
                     <div className='flex gap-x-2'>
                         <Image src={mail} alt='mail ico' />
-                        <span>example@mail.ru</span>
+                        <span>info@manchini.ru</span>
                     </div>
                     <div className='flex gap-x-2'>
                         <Image src={home} alt='home ico' />
-                        <div>
-                            <span>2134 Mans St.</span>
-                            <span>Rostov-on-Don</span>
-                        </div>
+                        <span>Москва, ул. Тверская, 18. Бизнес-центр - Премиум</span>
                     </div>
                     <div className='flex gap-x-2'>
                         <Image src={phone} alt='phone ico' />
