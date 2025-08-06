@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // Используем стандартный DATABASE_URL
 }
 
 // Типы объектов: новостройка, вторичка, дом и т.д.
