@@ -44,7 +44,8 @@ export default function FAQ() {
                 theme={{
                     components: {
                         Collapse: {
-                            headerBg: '#f9f2e5'
+                            headerBg: '#121A1F',
+                            colorTextHeading: 'white'
                         },
                     },
                 }}

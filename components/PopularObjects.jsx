@@ -10,8 +10,8 @@ import Image from 'next/image'
 export default function PopularObjects() {
     return (
         <div className=''>
-            <div className='section container mx-auto '>
-                <div className='flex justify-between mb-[50px]'>
+            <div className='section container mx-auto  '>
+                <div className='flex justify-between mb-[50px] items-center'>
                     <h2 className='title'>Популярные объекты</h2>
                     <button className='button'>Исследовать→</button>
                 </div>

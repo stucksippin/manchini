@@ -16,8 +16,9 @@ export default async function CatalogPage({ searchParams }) {
     const objects = await getObjects({ city, type, rooms, priceMin, priceMax });
 
     return (
-        <div className="flex mt-[2%] mb-[2%] gap-x-10 mx-[5%]">
-            <Filter searchParams={{ city, type, rooms, priceMin, priceMax }} />
+        <div className="flex flex-col lg:flex-row mt-6 mb-10 gap-6 px-4 md:px-8">
+            <div className='filter__container w-full lg:w-[25%]'>  <Filter searchParams={{ city, type, rooms, priceMin, priceMax }} /></div>
+
             <Catalog objects={objects} />
         </div>
     );

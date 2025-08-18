@@ -7,11 +7,17 @@ ul {
   list-style: none;
 }
 
+.ant-checkbox-label {
+  color: white;
+}
+
 .button {
   padding: 10px 30px;
-  background: #fffcf6;
+  background: #121A1F;
   font-weight: 300;
+  color: white;
   border-radius: 10px;
+
 }
 
 .title {
@@ -94,5 +100,29 @@ ul {
   margin-bottom: 20px;
 }
 
+.callback-input {
+  border-radius: 5px;
+}
+
 
 /* adaptive */
+@media screen and (max-width: 1920px) {}
+
+@media screen and (max-width: 1440px) {}
+
+@media screen and (max-width: 1024px) {
+
+  .filter__container {
+    width: 20%;
+  }
+
+
+}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 425px) {}
+
+@media screen and (max-width: 375px) {}
+
+@media screen and (max-width: 320px) {}
