@@ -47,12 +47,12 @@ export default function Catalog({ objects }) {
     };
 
     return (
-        <div className="catalog__container w-[80%]">
+        <div className="w-full">
             <div className='mx-auto'>
                 {itemsToShow.length > 0 ? (
                     <>
                         <motion.div
-                            className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 mx-auto"
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 w-full max-w-[1200px] mx-auto"
                             variants={containerVariants}
                             initial="hidden"
                             animate="visible"
@@ -66,7 +66,7 @@ export default function Catalog({ objects }) {
                                     : `/assets/image/realty-placeholder.webp`;
 
                                 return (
-                                    <Link key={object.id} href={`/catalog/${object.id}`}>
+                                    <Link className="block w-full min-w-0" key={object.id} href={`/catalog/${object.id}`}>
                                         <ObjectCard
                                             id={object.id}
                                             name={object.name}
@@ -84,7 +84,7 @@ export default function Catalog({ objects }) {
                             })}
                         </motion.div>
 
-                        {/* Кнопка "Показать еще" */}
+
                         <AnimatePresence>
                             {visibleCount < objects.length && (
                                 <motion.div

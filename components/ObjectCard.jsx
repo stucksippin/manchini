@@ -62,7 +62,7 @@ export default function ObjectCard({
 
     return (
         <motion.div
-            className="group relative bg-gradient-to-br from-[#1a2332] to-[#0f1419] rounded-2xl overflow-hidden shadow-xl border border-gray-700/30 cursor-pointer h-full flex flex-col"
+            className="group relative bg-gradient-to-br min from-[#1a2332] to-[#0f1419] rounded-2xl overflow-hidden shadow-xl border border-gray-700/30 cursor-pointer h-full flex flex-col"
             variants={cardVariants}
             initial="hidden"
             animate="visible"

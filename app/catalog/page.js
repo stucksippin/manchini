@@ -5,21 +5,27 @@ import Filter from '@/components/Filter';
 import { getObjects } from '@/libs/getObject';
 
 export default async function CatalogPage({ searchParams }) {
-    // «Материализуем» async‑поля
-    const city = await searchParams.city || '';
-    const type = await searchParams.type || '';
-    const rooms = await searchParams.rooms || '';
-    const priceMin = await searchParams.priceMin || '';
-    const priceMax = await searchParams.priceMax || '';
+    const params = await searchParams;
 
-    // Передаём в getObjects чистые строки
+    const city = params?.city || '';
+    const type = params?.type || '';
+    const rooms = params?.rooms || '';
+    const priceMin = params?.priceMin || '';
+    const priceMax = params?.priceMax || '';
+
     const objects = await getObjects({ city, type, rooms, priceMin, priceMax });
 
-    return (
-        <div className="flex flex-col lg:flex-row mt-6 mb-10 gap-6 px-4 md:px-8">
-            <div className='filter__container w-full lg:w-[25%]'>  <Filter searchParams={{ city, type, rooms, priceMin, priceMax }} /></div>
 
-            <Catalog objects={objects} />
+
+    return (
+        <div className="flex flex-col lg:flex-row gap-6 px-4 md:px-8 mt-6 mb-10">
+
+            <div className="w-full lg:w-[320px] xl:w-[360px] flex-shrink-0">
+                <Filter searchParams={{ city, type, rooms, priceMin, priceMax }} />
+            </div>
+            <div className="flex-1 min-w-0">
+                <Catalog objects={objects} />
+            </div>
         </div>
     );
 }
