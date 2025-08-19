@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function CallbackForm() {
     return (
-        <form className='flex flex-col gap-y-3 my-auto w-full max-w-[400px] p-4'>
+        <form id='callback-form' className='flex flex-col gap-y-3 my-auto w-full max-w-[400px] p-4'>
             <label className='font-light'>Ваше имя</label>
             <input className='callback-input border p-4 w-full' type="text" placeholder='Ivan Ivanov' />
             <label className='font-light'>Электронная почта</label>
