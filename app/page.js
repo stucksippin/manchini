@@ -1,14 +1,20 @@
 'use client'
 import BenefitsBlock from '@/components/BenefitsBlock';
+import BenefitsSkeleton from '@/components/BenefitsSkeleton';
 import ContactUs from '@/components/ContactUs';
 import PopularObjects from '@/components/PopularObjects';
 import main_page from '@/public/assets/image/main_image.jpg'
 import Image from 'next/image';
 export default function MainPage() {
+
+
+
   return (
     <div >
 
       <div className="relative w-full h-screen">
+        {/* Skeleton */}
+        <div className="absolute inset-0 animate-pulse bg-gray-700/50"></div>
         <Image
           src={main_page}
           alt="banner with house"
@@ -28,7 +34,8 @@ export default function MainPage() {
         </button>
       </div>
 
-      <BenefitsBlock />
+
+      {loading ? <BenefitsSkeleton /> : <BenefitsBlock />}
       <PopularObjects />
       <ContactUs />
     </div>
