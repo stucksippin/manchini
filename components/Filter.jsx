@@ -306,7 +306,7 @@ export default function Filter({ searchParams }) {
                         >
                             <Checkbox value="NEW_BUILDING">Новостройка</Checkbox>
                             <Checkbox value="SECONDARY">Вторичка</Checkbox>
-                            <Checkbox value="APARTMENT">Аппартаменты</Checkbox>
+                            <Checkbox value="APARTMENT">Апартаменты</Checkbox>
                             <Checkbox value="HOUSE">Дом</Checkbox>
                         </Checkbox.Group>
                     </motion.div>
