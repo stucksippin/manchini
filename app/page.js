@@ -5,9 +5,15 @@ import ContactUs from '@/components/ContactUs';
 import PopularObjects from '@/components/PopularObjects';
 import main_page from '@/public/assets/image/main_image.jpg'
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 export default function MainPage() {
 
+  const [loading, setLoading] = useState(true)
 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 500)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div >
